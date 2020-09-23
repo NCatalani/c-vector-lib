@@ -1,16 +1,14 @@
 CC=gcc
 CFLAGS=-I. -Wall
-DEPS = vector.h
-OBJ = vector.o main.o 
-TARGET = main
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+all: libvector.a
 
-$(TARGET): $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+vector.o: vector.c vector.h
+	$(CC) $(CFLAGS) -O -c vector.c
+libvector.a: vector.o
+	ar rcs libvector.a vector.o
 
 .PHONY: clean
 
 clean:
-	$(RM) $(TARGET) *.o
+	$(RM) *.o *.a *.gch
