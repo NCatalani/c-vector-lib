@@ -38,6 +38,7 @@ int searchElement(Vector v, void *data, int(*compare)(const void *, const void *
 
 	lowerLimit	=	0;
 	upperLimit	=	v->size - 1;
+	middle		=	0;
 
 	while (lowerLimit <= upperLimit) {
 		middle	=	lowerLimit	+	((upperLimit - lowerLimit) >> 1);		//Bitwise operator used to find floor of division by 2
